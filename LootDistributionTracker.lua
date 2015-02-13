@@ -17,18 +17,20 @@ local function eventHandler(...)
 	if string.match(msg, "Beute") or string.match(msg, "Loot") then
 		local i, j = string.find(msg, "%[.*%]");
 		local item = string.sub(msg, i+1, j-1);
-		printTable( mysplit(msg, "%S"));
-		local player = mysplit(msg, "%S")[0];
-
-
+	--	printTable( mysplit(msg, "%S"));
+	
+		-- zieht hier das erste Wort aus dem Chat ("Ihr" erhaltet ..., "Hummeel" erhält ... )
+		local player = mysplit(msg, "%s")[1];
+		
+    -- aus "Ihr" wird "Ralphus"
 		if string.match(player, "Ihr") or string.match(player, "You") then
-			player = UnitName("player");
+			player = UnitName("player");	
 		end
 
 		local name, type, difficultyIndex, difficultyName, maxPlayers, dynamicDifficulty,
     	isDynamic, mapID = GetInstanceInfo();
 
-    	LOOTS.insert(player + "|" + item + "|" + mapID);
+    	table.insert(LOOTS, player.."|"..item.."|"..mapID);
 		postLootInformation(item, player, mapID);
 	end
 end
@@ -49,7 +51,7 @@ function mysplit(inputstr, sep)
             sep = "%s"
     end
     local t={} ; i=1
-    for str in string.gmatch(inputstr, sep) do
+    for str in string.gmatch(inputstr, "[^"..sep.."]+") do
             t[i] = str
             i = i + 1
     end
