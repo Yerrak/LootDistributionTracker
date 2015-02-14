@@ -22,7 +22,7 @@ local function eventHandler(...)
 		-- zieht hier das erste Wort aus dem Chat ("Ihr" erhaltet ..., "Hummeel" erhält ... )
 		local player = mysplit(msg, "%s")[1];
 		
-    -- aus "Ihr" wird "Ralphus"
+    -- aus "Ihr" wird "Ralphus" oder "Hummeel" :)
 		if string.match(player, "Ihr") or string.match(player, "You") then
 			player = UnitName("player");	
 		end
