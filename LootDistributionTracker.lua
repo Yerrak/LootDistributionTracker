@@ -29,6 +29,7 @@ local function eventHandler(...)
       isDynamic, mapID = GetInstanceInfo();
 
       table.insert(LOOTS, player.."|"..item.."|"..mapID);
+
     postLootInformation(item, player, mapID);
   end
 end
