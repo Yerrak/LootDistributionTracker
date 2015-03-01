@@ -1,8 +1,10 @@
-﻿## Interface: 60000
+## Interface: 60000
 ## Title: LootDistributionTracker
 ## Notes: 
 ## Version: 0.1
 ## Author: Ralphus
+## SavedVariables: LOOTS
 
 LootDistributionTracker.lua
+gui.lua
 LootDistributionTracker.xml

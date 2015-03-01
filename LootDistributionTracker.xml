@@ -1,13 +1,17 @@
-<Ui xmlns="http://www.blizzard.com/wow/ui/" 
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-                   xsi:schemaLocation="http://www.blizzard.com/wow/ui/ 
-                   ..\..\FrameXML\UI.xsd">
-  <Script File="HelloWorld.lua"/>
-  <Frame name="HelloWorldFrame">
-   <Scripts>
-    <OnLoad>
-     HelloWorld();
-    </OnLoad>
-   </Scripts>
-  </Frame>
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+	<Frame name="LootFrame">
+		<Size><AbsDimension x="100" y="100"/></Size>
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+       	<Scripts>
+	       <OnLoad>
+    	       HelloWorld(self);
+           </OnLoad>
+	   </Scripts>
+   		<Button name="Close" parent="UIParent">
+   			<Size><AbsDimension x="20" y="11" /></Size>
+   			<ButtonText name="Close" />
+   	 	</Button>
+ 	</Frame>
 </Ui>

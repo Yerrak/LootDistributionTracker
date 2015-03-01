@@ -1,5 +1,5 @@
 function HelloWorld() 
-  print("Hello, World!"); 
+  print("Hello, World!");
 end
 
 local frame = CreateFrame("FRAME", "FooAddonFrame");
@@ -15,8 +15,11 @@ local function eventHandler(...)
   local msg = args[3];
 
   if string.match(msg, "Beute") or string.match(msg, "Loot") then
-    local i, j = string.find(msg, "%[.*%]");
-    local item = string.sub(msg, i+1, j-1);
+
+      local item = string.match(string.match(msg, 'item:%d+'), '%d+');
+      local sName, sLink, iRarity, iLevel, iMinLevel, sType, sSubType, iStackCount = GetItemInfo(item);
+      item = sLink;
+
   --  printTable( mysplit(msg, "%S"));
     local player = mysplit(msg, "%s")[1];
     
