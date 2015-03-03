@@ -7,4 +7,5 @@
 
 LootDistributionTracker.lua
 gui.lua
-LootDistributionTracker.xml
+Ldt.xml
+LdtForm.xml

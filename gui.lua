@@ -1,34 +1,37 @@
--- (1)
-local f = CreateFrame("Frame", "YourFrameName", UIParent)
-f:SetSize(400, 400)
-f:SetPoint("CENTER")
+function out(text)
+ DEFAULT_CHAT_FRAME:AddMessage(text)
+ UIErrorsFrame:AddMessage(text, 1.0, 1.0, 0, 1, 10) 
+end
 
--- (2)
-f:SetBackdrop({
-bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
-edgeFile = "Interface\\ChatFrame\\ChatFrameBackground",
-edgeSize = 1,
-})
-f:SetBackdropColor(0, 0, 0, .5)
-f:SetBackdropBorderColor(0, 0, 0)
+function Ldt_OnLoad()
+  out("Ldt: OnLoad");
+  SLASH_Ldt1 = "/Ldt";
+  SLASH_Ldt2 = "/askdoc";
+  SlashCmdList["Ldt"] = function(msg)
+    Ldt_SlashCommandHandler(msg);
+  end
+end
 
--- (3)
-f:EnableMouse(true)
-f:SetMovable(true)
-f:RegisterForDrag("LeftButton")
-f:SetScript("OnDragStart", f.StartMoving)
-f:SetScript("OnDragStop", f.StopMovingOrSizing)
-f:SetScript("OnHide", f.StopMovingOrSizing)
+function Ldt_OnClick(arg1)
+   id = this:GetID()
+   out("Ldt: OnClick: " .. this:GetName() .. " ,ID: " .. id .. " ,Button:" ..arg1)
+end
 
--- (4)
--- (4)
-local close = CreateFrame("Button", "YourCloseButtonName", f, "UIPanelCloseButton")
-close:SetPoint("TOPRIGHT", f, "TOPRIGHT")
-close:SetScript("OnClick", function()
-f:Hide()
-end)
+function Ldt_SlashCommandHandler(msg)
+    out("Ldt: " .. msg)
+  if (msg == "0") then
+   ReloadUI();
+  end
+  Ldt_Toggle(msg);
+end
 
--- (5)
-local text = f:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
-text:SetPoint("CENTER")
-text:SetText("Hello World!")
+function Ldt_Toggle(num)
+   local frame = getglobal("Ldt" .. num)
+   if (frame) then
+   if(  frame:IsVisible() ) then
+      frame:Hide();
+   else
+      frame:Show();
+   end
+   end
+end
