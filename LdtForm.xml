@@ -17,7 +17,7 @@
       <Button name="Minimapbutton" frameStrata="LOW">
         <!--<FrameSkin skinid="f15d4970-d66d-444e-bb2d-1ad102c87fed" frameid="f15d4973-d66d-444e-bb2d-1ad102c87fed" />-->
         <Size>
-          <AbsDimension x="14" y="14" />
+          <AbsDimension x="20" y="20" />
         </Size>
         <Anchors>
           <Anchor point="TOPLEFT">
@@ -27,9 +27,9 @@
           </Anchor>
         </Anchors>
         <Scripts>
-          <OnClick>Ldt1:Show();</OnClick>
+          <OnClick>ShowMainFrame();</OnClick>
         </Scripts>
-        <NormalTexture file="interface\gossipframe\activequesticon" />
+        <NormalTexture file="interface\gossipframe\vendorgossipicon" />
         <ButtonText name="$parentText">
           <FontHeight>
             <AbsValue val="14" />

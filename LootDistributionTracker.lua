@@ -34,6 +34,8 @@ local function eventHandler(...)
       table.insert(LOOTS, player.."|"..item.."|"..mapID);
 
     postLootInformation(item, player, mapID);
+    
+    -- ShowMainFrame(item);
   end
 end
 frame:SetScript("OnEvent", eventHandler);

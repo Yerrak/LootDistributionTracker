@@ -12,6 +12,24 @@ function Ldt_OnLoad()
   end
 end
 
+function ShowMainFrame(text)
+  local frame = getglobal("Ldt1");
+  frame.text = frame.text or frame:CreateFontString(nil);
+  frame.text:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, MONOCHROME")
+  frame.text:SetAllPoints(true);
+  frame.text:SetJustifyH("CENTER");
+  frame.text:SetJustifyV("TOP");
+  if (text) then
+  local oldText = frame.text:GetText();
+    if (oldText) then
+      frame.text:SetText(text.."\n"..oldText);
+    else
+      frame.text:SetText(text);
+    end
+  end
+  frame:Show();
+end
+
 function Ldt_OnClick(arg1)
    id = this:GetID()
    out("Ldt: OnClick: " .. this:GetName() .. " ,ID: " .. id .. " ,Button:" ..arg1)
